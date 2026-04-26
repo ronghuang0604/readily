@@ -1,0 +1,52 @@
+[
+  {
+    "question": "Does policy AA.1204 prohibit a CalOptima Health Employee or official from accepting an Honorarium connected to their responsibilities at CalOptima Health?",
+    "expected_file_name": "AA.1204_20240725_v20240701.pdf",
+    "expected_page_number": 1
+  },
+  {
+    "question": "If a CalOptima Health Employee or official is offered an Honorarium, within how many days may the donor present it to the CalOptima Health general fund as a donation?",
+    "expected_file_name": "AA.1204_20240725_v20240701.pdf",
+    "expected_page_number": 1
+  },
+  {
+    "question": "A vendor that does business with CalOptima Health wants to give an employee sports tickets and meals worth more than $5 in a calendar year. Does AA.1204 allow the employee to accept them?",
+    "expected_file_name": "AA.1204_20240725_v20240701.pdf",
+    "expected_page_number": 2
+  },
+  {
+    "question": "Under AA.1204, which items are not considered Gifts if they are either returned unused or donated unused to a 501(c)(3) charitable organization within thirty days after receipt?",
+    "expected_file_name": "AA.1204_20240725_v20240701.pdf",
+    "expected_page_number": 2
+  },
+  {
+    "question": "What does the policy say about gifts or remuneration offered to induce the referral of business reimbursable under the Medi-Cal or Medicare programs?",
+    "expected_file_name": "AA.1204_20240725_v20240701.pdf",
+    "expected_page_number": 2
+  },
+  {
+    "question": "Which travel payments are not subject to any limit and do not need to be reported on a Statement of Economic Interests Form 700?",
+    "expected_file_name": "AA.1204_20240725_v20240701.pdf",
+    "expected_page_number": 3
+  },
+  {
+    "question": "If travel is paid directly to transportation or lodging providers for official CalOptima Health business instead of reimbursing the traveler, what conditions must be met for that payment to qualify under the travel-payment exception?",
+    "expected_file_name": "AA.1204_20240725_v20240701.pdf",
+    "expected_page_number": 3
+  },
+  {
+    "question": "Which types of Travel Payments have no dollar limit but still must be reported on a designated Employee's Form 700 under AA.1204?",
+    "expected_file_name": "AA.1204_20240725_v20240701.pdf",
+    "expected_page_number": 4
+  },
+  {
+    "question": "Who is required to submit the CalOptima Health Supplement to Form 700, and when must it be submitted?",
+    "expected_file_name": "AA.1204_20240725_v20240701.pdf",
+    "expected_page_number": 4
+  },
+  {
+    "question": "How does AA.1204 define a Gift for purposes of this policy?",
+    "expected_file_name": "AA.1204_20240725_v20240701.pdf",
+    "expected_page_number": 6
+  }
+]
