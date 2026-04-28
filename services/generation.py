@@ -2,13 +2,19 @@ import argparse
 import json
 import urllib.error
 import urllib.request
+import os
+from dotenv import load_dotenv
 
 from sentence_transformers import SentenceTransformer
 
-import retrieve
+try:
+    from services import retrieve
+except ImportError:
+    import retrieve
 
 
-API_KEY = "AIzaSyD_k50n0tIoA0D31H8E9AKEYTcIRzlXy6M"
+load_dotenv()
+API_KEY = os.getenv("GOOGLE_API_KEY")
 MODEL_NAME = "gemini-2.5-flash"
 API_URL = (
     f"https://generativelanguage.googleapis.com/v1beta/models/"
@@ -137,6 +143,21 @@ def call_llm(prompt: str):
         raise RuntimeError(f"Unexpected LLM response format: {body}") from exc
 
 
+def parse_llm_response(response_text: str):
+    try:
+        return json.loads(response_text)
+    except json.JSONDecodeError as exc:
+        raise RuntimeError(f"LLM did not return valid JSON: {response_text}") from exc
+
+
+def generate_answer(question: str):
+    chunks = retrieve_chunks(question)
+    prompt = build_prompt(question, chunks)
+    llm_response_text = call_llm(prompt)
+    llm_response_json = parse_llm_response(llm_response_text)
+    return llm_response_json, chunks
+
+
 def print_retrieved_chunks(chunks):
     print("\nRetrieved chunks:")
     for chunk in chunks:
@@ -151,16 +172,13 @@ def main():
     args = parser.parse_args()
 
     try:
-        chunks = retrieve_chunks(args.question)
-        prompt = build_prompt(args.question, chunks)
-        llm_response = call_llm(prompt)
+        llm_response, chunks = generate_answer(args.question)
     except Exception as exc:
         print(f"Error: {exc}")
         return
 
-    print(llm_response)
+    print(json.dumps(llm_response, ensure_ascii=False, indent=2))
     print_retrieved_chunks(chunks)
-
 
 if __name__ == "__main__":
     main()
