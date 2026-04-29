@@ -69,7 +69,7 @@ with questionnaire_tab:
                     st.divider()
 
 with policy_guide_tab:
-    sample_clicked = st.button("Use Sample Policy Guide (Pages 1–20)")
+    sample_clicked = st.button("Use Sample Policy Guide (Pages 11–20)")
     st.button("Upload Policy Guide (Coming Soon)", disabled=True)
 
     if sample_clicked:
@@ -101,11 +101,11 @@ with policy_guide_tab:
                     summary_rows.append(
                         {
                             "Obligation Text": result.get("obligation_text", ""),
+                            "Obligation Page Number": result.get("page_number", ""),
                             "Status": result.get("status", ""),
                             "Recommended Action": result.get(
                                 "recommended_action", ""
                             ),
-                            "Page Number": result.get("page_number", ""),
                         }
                     )
 

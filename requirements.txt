@@ -1,4 +1,6 @@
-numpy
-sentence-transformers
 streamlit
+pymupdf
+sentence-transformers
+numpy
+requests
 python-dotenv
