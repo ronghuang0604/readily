@@ -3,8 +3,8 @@ import json
 import urllib.error
 import urllib.request
 import os
+import streamlit as st
 from dotenv import load_dotenv
-
 from sentence_transformers import SentenceTransformer
 
 try:
@@ -12,9 +12,24 @@ try:
 except ImportError:
     import retrieve
 
-
 load_dotenv()
-API_KEY = os.getenv("GOOGLE_API_KEY")
+
+def get_google_api_key():
+    api_key = os.getenv("GOOGLE_API_KEY")
+    if api_key:
+        return api_key
+    try:
+        return st.secrets.get("GOOGLE_API_KEY")
+    except Exception:
+        return None
+
+API_KEY = get_google_api_key()
+
+if not API_KEY:
+    raise ValueError(
+        "GOOGLE_API_KEY is missing. Add it to .env locally or Streamlit secrets in deployment."
+    )
+
 MODEL_NAME = "gemini-2.5-flash"
 API_URL = (
     f"https://generativelanguage.googleapis.com/v1beta/models/"
